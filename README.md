@@ -7,7 +7,7 @@
 ## 📋 Overview
 
 This backend service provides the core functionality for Climact - a gamified climate action platform that helps users track sustainability tasks, reduce carbon footprint, and participate in environmental challenges.
-###
+#
 ### 🎯 Core Modules
 
 **🔐 Authentication & User Management** - Secure user accounts and profiles with role-based access  
@@ -16,7 +16,7 @@ This backend service provides the core functionality for Climact - a gamified cl
 **📊 Analytics Engine** - Carbon footprint calculations and impact metrics  
 **👥 Community Features** - Events, groups, and social interactions  
 
-###
+#
 ###  📈 Progress
 
 | Core Module                         | Description                                              | Status           |
@@ -28,7 +28,7 @@ This backend service provides the core functionality for Climact - a gamified cl
 | 👥 Community Features               | Events, groups, and social interactions                  | 🚧 **Dev**       |
 | -                                   | -                                                        | 🚧 **Dev**       |
 
-###
+#
 ### 🔐 Authentication and Users
 
 | Method         | Endpoint            | Description                 | Status       |
@@ -39,12 +39,14 @@ This backend service provides the core functionality for Climact - a gamified cl
 | `PUT & DELETE` | `/api/auth/id`      | Update user settings        | ✅ **Live**   |
 
 
-###
+#
 ## Authors
 
 - [@hearunnas](https://www.github.com/hrnns-ti)
 
 
-###
+#
 ## Tech Stack
-**Server:** Node, Express, MongoDB
+**Server:** Node, Express
+
+**Database:** MongoDB
