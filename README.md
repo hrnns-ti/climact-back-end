@@ -1,6 +1,6 @@
 # ClimACT API 🌱
 
-**RESTful API service powering the Climact climate action platform**
+**RESTful API service powering the ClimACT climate action platform**
 
 > *Turning climate intentions into measurable actions through robust backend infrastructure*
 
