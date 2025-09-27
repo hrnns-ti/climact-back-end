@@ -17,19 +17,26 @@ This backend service provides the core functionality for Climact - a gamified cl
 **👥 Community Features** - Events, groups, and social interactions  
 
 ###
-### 🔐 Authentication & Users
+### 🔐 Progress
 
-| Method | Endpoint | Description | Status |
-|--------|----------|-------------|---------|
-| `POST` | `/api/auth/register` | Create new climate warrior | ✅ **Live** |
-| `POST` | `/api/auth/login` | User authentication | ✅ **Live** |
-| `GET` | `/api/auth/profile` | Get user profile | 🚧 **Dev** |
-| `PUT` | `/api/auth/preferences` | Update user settings | 🚧 **Dev** |
+| Method         | Endpoint            | Description                 | Status        |
+|----------------|---------------------|-----------------------------|---------------|
+| `POST`         | `/api/auth/sign-up` | Create new climate warrior  | ✅ **Live**    |
+| `POST`         | `/api/auth/sign-in` | User authentication         | ✅ **Live**    |
+| `GET`          | `/api/auth/id`      | Get user profile            | ✅ **Live**    |
+| `PUT & DELETE` | `/api/auth/id`      | Update user settings        | ✅ **Live**    |
+| -              | -                   | Quest Module                | 🚧 **Dev**    |
+| -              | -                   | Badge Module                | 🚧 **Dev**    |
+| -              | -                   | Article & Education Content | 🚧 **Dev**    |
+| -              | -                   | Improve Authorization       | 🚧 **Dev**    |
+| -              | -                   | -                           | 🚧 **Dev**    |
 
+###
 ## Authors
 
 - [@hearunnas](https://www.github.com/hrnns-ti)
 
 
+###
 ## Tech Stack
-**Server:** Node, Express
+**Server:** Node, Express, MongoDB
