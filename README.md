@@ -19,14 +19,14 @@ This backend service provides the core functionality for Climact - a gamified cl
 ###
 ###  📈 Progress
 
-| Core Module                         | Description                                               | Notes                                                                        | Status      |
-|-------------------------------------|-----------------------------------------------------------|------------------------------------------------------------------------------|-------------|
-| 🔐 Authentication & User Management | Secure user accounts and profiles with role-based access  | People can create, update, get detailed information, and delete user account | ✅ **Done**  |
-| 📋 Task Engine                      | -                                                         | -                                                                            | 🚧 **Dev**  |
-| 🏆 Gamification System              | -                                                         | -                                                                            | 🚧 **Dev**  |
-| 📊 Analytics Engine                 | -                                                         | -                                                                            | 🚧 **Dev**  |
-| 👥 Community Features               | -                                                         | -                                                                            | 🚧 **Dev**  |
-| -                                   | -                                                         | -                                                                            | 🚧 **Dev**  |
+| Core Module                         | Description                                              | Status           |
+|-------------------------------------|----------------------------------------------------------|------------------|
+| 🔐 Authentication & User Management | Secure user accounts and profiles with role-based access | ✅ **Done**       |
+| 📋 Task Engine                      | Dynamic daily/weekly climate action challenges           | 🚧 **Dev**       |
+| 🏆 Gamification System              | Points, achievements, and progress tracking              | 🚧 **Dev**       |
+| 📊 Analytics Engine                 | Carbon footprint calculations and impact metrics         | 🚧 **Dev**       |
+| 👥 Community Features               | Events, groups, and social interactions                  | 🚧 **Dev**       |
+| -                                   | -                                                        | 🚧 **Dev**       |
 
 ###
 ### 🔐 Authentication and Users
