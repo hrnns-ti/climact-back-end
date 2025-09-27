@@ -39,7 +39,7 @@ This backend service provides the core functionality for Climact - a gamified cl
 | `PUT & DELETE` | `/api/auth/id`      | Update user settings        | ✅ **Live**   |
 
 
-###
+#
 ###
 ## Authors
 
