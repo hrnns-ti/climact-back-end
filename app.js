@@ -12,12 +12,24 @@ import articleRouter from "./routes/article.routes.js";
 
 import connectToDB from "./database/mongodb.js"
 import errorMiddleware from "./middlewares/error.middleware.js";
+import arcjetMiddleware from "./middlewares/arcjet.middleware.js";
 
 const app = express();
+app.set('trust proxy', true);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+app.use((req, res, next) => {
+    console.log('🌐 Incoming Request:');
+    console.log('   IP:', req.ip);
+    console.log('   X-Forwarded-For:', req.headers['x-forwarded-for']);
+    console.log('   X-Real-IP:', req.headers['x-real-ip']);
+    console.log('   User-Agent:', req.headers['user-agent']);
+    next();
+});
+app.use(arcjetMiddleware)
 
 app.use('/api/v1/auth', authRouter);
 app.use('/api/v1/quests', questsRouter);
