@@ -28,7 +28,7 @@ This backend service provides the core functionality for Climact - a gamified cl
 | 👥 Community Features               | Events, groups, and social interactions                  | 🚧 **Dev**       |
 | -                                   | -                                                        | 🚧 **Dev**       |
 
-##
+###
 ### 🔐 Authentication and Users
 
 | Method         | Endpoint            | Description                 | Status       |
@@ -39,14 +39,14 @@ This backend service provides the core functionality for Climact - a gamified cl
 | `PUT & DELETE` | `/api/auth/id`      | Update user settings        | ✅ **Live**   |
 
 
-#
+###
+###
 ## Authors
 
 - [@hearunnas](https://www.github.com/hrnns-ti)
 
 
-##
+###
 ## Tech Stack
-**Server:** Node, Express
-
+**Server:** Node, Express  
 **Database:** MongoDB
