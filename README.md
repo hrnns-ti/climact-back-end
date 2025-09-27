@@ -16,7 +16,7 @@ This backend service provides the core functionality for Climact - a gamified cl
 **📊 Analytics Engine** - Carbon footprint calculations and impact metrics  
 **👥 Community Features** - Events, groups, and social interactions  
 
-
+#
 ###  📈 Progress
 
 | Core Module                         | Description                                              | Status           |
