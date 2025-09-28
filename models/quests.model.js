@@ -12,10 +12,10 @@ const questSchema = new mongoose.Schema({
         required: [true, 'Description is required'],
         maxLength: 1500
     },
-    type: {
+    period: {
         type: String,
-        enum: ['daily', 'weekly', 'monthly'],
-        default: 'daily',
+        enum: ['Daily', 'Weekly', 'Monthly'],
+        default: 'Daily',
         required: [true, 'Type is required']
     },
     points: {
@@ -26,6 +26,11 @@ const questSchema = new mongoose.Schema({
         type: Boolean,
         default: true
     },
+
+    completed: {
+        quest: {}
+    },
+
     createdAt: {
         type: Date,
         default: Date.now

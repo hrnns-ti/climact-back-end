@@ -36,5 +36,5 @@ const userQuestSchema = new mongoose.Schema({
     }
 })
 
-const userQuest = mongoose.model("User", userQuestSchema);
-export default userQuest;
+const UserQuest = mongoose.model("UserQuest", userQuestSchema);
+export default UserQuest;
