@@ -10,34 +10,59 @@ export const signUp = async (req, res, next) => {
 
     try {
         const {name, email, password} = req.body;
-        const existingUser = await User.findOne({email});
+
+        // Additional security check
+        const existingUser = await User.findOne(
+            {email},
+            null,
+            {session, lean: true}  // Use lean for better performance
+        );
+
         if (existingUser) {
             const error = new Error('User already exists');
-            error.status = 409;
+            error.statusCode = 409;
             throw error;
         }
-        // hash password
-        const salt = await bcrypt.genSalt(10);
-        const hashedPass = await bcrypt.hash(password, salt);
-        const newUser = await User.create([{name, email, password:hashedPass}], {session});
-        const token = jwt.sign({userId: newUser[0].id}, JWT_SECRET, {expiresIn: JWT_EXPIRES_IN});
+
+        // Enhanced password hashing
+        const saltRounds = 12;  // Increased from 10
+        const hashedPass = await bcrypt.hash(password, saltRounds);
+
+        const newUser = await User.create([{
+            name: name.trim(),
+            email: email.toLowerCase().trim(),
+            password: hashedPass
+        }], {session});
+
+        const token = jwt.sign(
+            {userId: newUser[0]._id},
+            JWT_SECRET,
+            {expiresIn: JWT_EXPIRES_IN}
+        );
 
         await session.commitTransaction();
         session.endSession();
+
+        // Don't send password in response
+        const userResponse = newUser[0].toObject();
+        delete userResponse.password;
+
         res.status(201).json({
             success: true,
             message: 'User created successfully!',
             data: {
                 token,
-                user: newUser[0]
+                user: userResponse
             }
-        })
+        });
+
     } catch(error) {
         await session.abortTransaction();
         session.endSession();
         next(error);
     }
-}
+};
+
 export const signIn = async (req, res, next) => {
     try {
         const {email, password} = req.body;

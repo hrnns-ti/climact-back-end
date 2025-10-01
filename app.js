@@ -7,15 +7,32 @@ import userRouter from "./routes/user.routes.js";
 import authRouter from "./routes/auth.routes.js";
 import questsRouter from "./routes/quests.routes.js";
 import socialRouter from "./routes/social.routes.js";
-import achievementRouter from "./routes/achievement.routes.js";
+// import achievementRouter from "./routes/achievement.routes.js";
 import articleRouter from "./routes/article.routes.js";
 
 import connectToDB from "./database/mongodb.js"
 import errorMiddleware from "./middlewares/error.middleware.js";
 import arcjetMiddleware from "./middlewares/arcjet.middleware.js";
+import session from 'express-session';
+import passport from './config/passport.js';
+import { SESSION_SECRET } from './config/env.js';
+import googleAuthRouter from './routes/googleauth.routes.js';
 
 const app = express();
 app.set('trust proxy', true);
+
+
+app.use(session({
+    secret: SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+        secure: process.env.NODE_ENV === 'production',
+        maxAge: 24 * 60 * 60 * 1000
+    }
+}));
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -31,11 +48,12 @@ app.use((req, res, next) => {
 });
 app.use(arcjetMiddleware)
 
+app.use('/api/v1/auth', googleAuthRouter);
 app.use('/api/v1/auth', authRouter);
 app.use('/api/v1/quests', questsRouter);
 app.use('/api/v1/users', userRouter);
 app.use('/api/v1/social', socialRouter);
-app.use('/api/v1/achievements', achievementRouter);
+// app.use('/api/v1/achievements', achievementRouter);
 app.use('/api/v1/articles', articleRouter);
 
 app.use(errorMiddleware);

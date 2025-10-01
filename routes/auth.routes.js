@@ -1,10 +1,16 @@
-import { Router } from 'express';
-import {logOut, signUp, signIn} from "../controllers/auth.controller.js";
+import express from 'express';
+import { signUp, signIn, logOut } from '../controllers/auth.controller.js';
+import { validateRegistration, validateLogin, sanitizeInput } from '../middlewares/validation.middleware.js';
+import aj from '../config/arcjet.js';
 
-const authRouter = Router();
+const router = express.Router();
 
-authRouter.post('/sign-up', signUp);
-authRouter.post('/sign-in', signIn);
-authRouter.post('/log-out', logOut);
+// Apply Arcjet protection and sanitization to all routes
+router.use(aj.protect);
+router.use(sanitizeInput);
 
-export  default authRouter;
+router.post('/register', validateRegistration, signUp);
+router.post('/login', validateLogin, signIn);
+router.post('/logout', logOut);
+
+export default router;
